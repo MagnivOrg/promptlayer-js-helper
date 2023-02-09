@@ -1,22 +1,21 @@
 import promptLayer from './promptlayer.js';
 import { Configuration, OpenAIApi } from "openai";
 
+// Create a new OpenAI API client
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
-const model = "code-davinci-002";
-const prompt = "You: How do I combine arrays?\nJavaScript chatbot: You can use the concat() method.\nYou: How do you make an alert appear after 10 seconds?\nJavaScript chatbot";
+
+// Make a request to the OpenAI API
+const model = "text-davinci-003";
+const prompt = "Q: How do I combine arrays in Javascript?\nA:";
 const requestStartTime = Date.now()
 const response = await openai.createCompletion({
   model: model,
-  prompt: prompt,
-  temperature: 0,
-  max_tokens: 60,
-  top_p: 1.0,
-  frequency_penalty: 0.5,
-  presence_penalty: 0.0,
-  stop: ["You:"],
+  prompt: prompt
 });
 const requestEndTime = Date.now()
+
+// Log the request in PromptLayer
 promptLayer(['js-test'], prompt, model, response.data, requestStartTime, requestEndTime);
