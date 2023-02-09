@@ -12,8 +12,8 @@ export default async function promptLayer(tags, prompt, engine, requestResponse,
       "kwargs": { "engine": engine, "prompt": prompt },
       "tags": tags,
       "request_response": requestResponse,
-      "request_start_time": requestStartTime,
-      "request_end_time": requestEndTime,
+      "request_start_time": Math.floor(requestStartTime / 1000),
+      "request_end_time": Math.floor(requestEndTime / 1000),
       "api_key": process.env.PROMPTLAYER_API_KEY,
     };
     const data = await fetch('https://api.promptlayer.com/track-request', {
