@@ -1,3 +1,4 @@
+// Credit to Dominic Nguyen https://twitter.com/domng_me for making this helper function
 export default async function promptLayer(tags, prompt, engine, requestResponse, requestStartTime, requestEndTime) {
   if (!process.env.PROMPTLAYER_API_KEY) {
     console.error('promptLayer', 'no api key')
