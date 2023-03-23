@@ -20,7 +20,11 @@ export default async function promptLayer(tags, engine, functionName, prompt, me
 
   try {
     const requestInput = {
+<<<<<<< HEAD
       "function_name": functionName,
+=======
+      "function_name": "openai.Completion.create.js",
+>>>>>>> 8a0c01ba47c62783a1232d335dd5790872233461
       "args": [],
       "kwargs": kwargs,
       "tags": tags,
