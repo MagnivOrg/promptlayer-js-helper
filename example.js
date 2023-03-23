@@ -10,7 +10,7 @@ const openai = new OpenAIApi(configuration);
 // Make a request to the OpenAI API
 const model = "text-davinci-003";
 const prompt = "Q: How do I combine arrays in Javascript?\nA:";
-const requestStartTime = Date.now()
+var requestStartTime = Date.now()
 const response = await openai.createCompletion({
   model: model,
   prompt: prompt
